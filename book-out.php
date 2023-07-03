@@ -55,38 +55,27 @@
                 $sql = $pdo->prepare('select * from Books where book_name like ?');
                 $sql->execute(["%$search%"]);
 
-                foreach ($sql as $row) {
-                    echo '<tr>';
-                    echo '<td>', $row['book_name'], '</td>';
-                    echo '</tr>';
-                }
+                
             } else if ($category != 0 and $price != 0) {
                 $sql = $pdo->prepare('select * from Books where book_name like ? and category =? and price between ? and ?');
                 $sql->execute(["%$search%", $category_name, $price2, $price1]);
 
-                foreach ($sql as $row) {
-                    echo '<tr>';
-                    echo '<td>', $row['book_name'], '</td>';
-                    echo '</tr>';
-                }
+                
             } else if ($category != 0 and $price == 0) {
                 $sql = $pdo->prepare('select * from Books where book_name like ? and category =?');
                 $sql->execute(["%$search%", $category_name]);
 
-                foreach ($sql as $row) {
-                    echo '<tr>';
-                    echo '<td>', $row['book_name'], '</td>';
-                    echo '</tr>';
-                }
+                
             } else {
                 $sql = $pdo->prepare('select * from Books where book_name like ? and price between ? and ?');
                 $sql->execute(["%$search%", $price2, $price1]);
 
-                foreach ($sql as $row) {
-                    echo '<tr>';
-                    echo '<td>', $row['book_name'], '</td>';
-                    echo '</tr>';
-                }
+                
+            }
+            foreach ($sql as $row) {
+                echo '<tr>';
+                echo '<td>', $row['book_name'], '</td>';
+                echo '</tr>';
             }
 
             echo '<p><button type="button" class="delete" onclick="history.back()">戻る</button></p>';
