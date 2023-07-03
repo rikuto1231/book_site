@@ -13,10 +13,10 @@
         </tr>
 
         <?php
-            $host = 'mysql214.phy.lolipop.lan'; // データベースサーバーのホスト名
-            $dbname = 'LAA1517437-shop'; // 使用するデータベース名
-            $user = 'LAA1517437'; // データベースのユーザー名
-            $password = 'Pass1015'; // データベースのパスワード
+            $host = '***'; // データベースサーバーのホスト名
+            $dbname = '***'; // 使用するデータベース名
+            $user = '***'; // データベースのユーザー名
+            $password = '***'; // データベースのパスワード
             $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
 
             $array_category = array(
